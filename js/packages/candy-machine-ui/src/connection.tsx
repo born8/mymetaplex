@@ -19,8 +19,6 @@ interface BlockhashAndFeeCalculator {
   feeCalculator: FeeCalculator;
 }
 
-export const DEFAULT_TIMEOUT = 60000;
-
 export const getErrorForTransaction = async (
   connection: Connection,
   txid: string,
@@ -347,6 +345,7 @@ export const sendTransactionWithRetry = async (
 export const getUnixTs = () => {
   return new Date().getTime() / 1000;
 };
+const DEFAULT_TIMEOUT = 30000;
 
 export async function sendSignedTransaction({
   signedTransaction,
